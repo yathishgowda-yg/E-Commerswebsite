@@ -27,7 +27,7 @@ Static Website Hosting in EC2 instance.
 Pre requestion Apache or Nginx web server must be installed.
 
 Cloning the code from GitHub
-git clone https://github.com/SHRIDHARMUDASHI/E-Commerswebsite.git
+git clone <url>
 
 Need to change the web directory permission
 

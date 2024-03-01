@@ -20,3 +20,37 @@
 
 ### Order confirm page
 ![4](https://user-images.githubusercontent.com/17312616/65086779-b2efdd80-d9d0-11e9-95d5-4b1a48eafe04.png)
+
+
+Static Website Hosting in EC2 instance.
+
+Pre requestion Apache or Nginx web server must be installed.
+
+Cloning the code from GitHub
+git clone https://github.com/SHRIDHARMUDASHI/E-Commerswebsite.git
+
+Need to change the web directory permission
+
+chown -R www-data:www-data /var/www/E-Commerswebsite/
+chmod -R 755 /var/www/E-Commerswebsite/
+
+vi /etc/apache2/sites-available/E-Commerswebsite.conf
+
+<VirtualHost *:80>
+     ServerAdmin admin@example.com
+     DocumentRoot /var/www/E-Commerswebsite
+     ServerName example.com
+     ServerAlias www.example.com
+     <Directory /var/www/E-Commerswebsite/>
+        Options +FollowSymlinks
+        AllowOverride All
+        Require all granted
+     </Directory>
+     ErrorLog ${APACHE_LOG_DIR}/error.log
+     CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+a2ensite E-Commerswebsite.conf
+a2enmod rewrite
+systemctl restart apache2.service
